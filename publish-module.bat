@@ -1,0 +1,1 @@
+spacetime publish --project-path server spacetime-magic
