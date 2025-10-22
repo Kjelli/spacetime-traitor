@@ -63,12 +63,12 @@ export default function VoteResultsView({
       setPrompt();
 
       if (results.eliminatedIsTraitor) {
-        changeState("game-over", "both-dimmed");
+        changeState("game-over", "both");
         return;
       }
 
       if (gameState.players.length - (results.eliminatedPlayer ? 1 : 0) < 3) {
-        changeState("game-over", "both-dimmed");
+        changeState("game-over", "both");
         return;
       }
 
@@ -163,7 +163,7 @@ function buildNarrative(gameState: GameState, result: RoundResult) {
 
   if (result.eliminatedPlayer) {
     texts.push(
-      `${result.eliminatedPlayer.playerName} fikk flest stemmer og ble eliminert.`
+      `${result.eliminatedPlayer.playerName} fikk flest stemmer, og er eliminert.`
     );
     const eliminatedIsTraitor = gameState.players.find(
       (p) =>
@@ -171,12 +171,11 @@ function buildNarrative(gameState: GameState, result: RoundResult) {
         p.role === "traitor"
     );
 
-    texts.push(`${result.eliminatedPlayer.playerName} var`);
+    texts.push(`${result.eliminatedPlayer.playerName} var...`);
 
     if (!eliminatedIsTraitor) {
       texts.push("Lojal");
       texts.push(`RIP, ${result.eliminatedPlayer!.playerName} 😢`);
-      texts.push(`Anyway, spillet går videre!`);
     }
   } else if (result.tiedPlayers) {
     const names = result.tiedPlayers.map((p) => p.playerName).join(" og ");

@@ -6,6 +6,9 @@ type QRCodeProps = {
   size?: number; // optional pixel size
 };
 
+const wifi = import.meta.env.VITE_WIFI || "Set wifi in .env";
+const password = import.meta.env.VITE_PASSWORD || "Set password in .env";
+
 export default function QRCodeCanvas({ value, size = 200 }: QRCodeProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -31,6 +34,11 @@ export default function QRCodeCanvas({ value, size = 200 }: QRCodeProps) {
         height={size}
         className="p-4 rounded-md"
       />
+      <p className="text-2xl p-1 text-black text-left">
+        🛜 {wifi}
+        <br />
+        🔑 {password}
+      </p>
     </div>
   );
 }

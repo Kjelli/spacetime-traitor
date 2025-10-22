@@ -22,8 +22,8 @@ export default function GameOverView({
           {isTraitorInGame ? "De lojale har tapt!" : "De lojale vant!"}
         </p>
         <p>
-          <span className="text-red-400">Forræderen</span> var
-          {" " + gameState?.previousTraitor}!
+          {gameState?.previousTraitor} var{" "}
+          <span className="text-red-400">Forræderen</span>!
         </p>
         <div className="mx-auto">
           <CountdownCircle
