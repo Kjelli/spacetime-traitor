@@ -2,7 +2,8 @@
 
 Shameless "among us" / "mafia" rip off with mobile view (controller) and desktop view (presenter). Lie to your friends and laugh about. Handcrafted to learn [spacetimedb](https://spacetimedb.com/home).
 
-![img](readme/demo.png)
+<img width="2859" height="874" alt="image" src="https://github.com/user-attachments/assets/52977bf8-e40f-48b3-9ef6-5847a0dfa02c" />
+
 
 ## Prerequisites
 
