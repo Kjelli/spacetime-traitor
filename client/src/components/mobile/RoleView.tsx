@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import type { GameState, Player } from "../../module_bindings";
 import type { FocusOnDevice } from "../../types/FocusOnDevice";
-import VIPView from "./VipView";
+import VIPView from "./VIPView";
 
 export type RoleViewProps = {
   player: Player;

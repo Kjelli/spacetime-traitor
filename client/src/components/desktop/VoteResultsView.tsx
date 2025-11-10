@@ -141,15 +141,12 @@ function determineResults(gameState: GameState): RoundResult {
   );
 
   // Check if single player received majority of votes
-  const majorityThreshold = Math.floor(gameState.players.length / 2) + 1;
-  const singleMajority =
-    playersWithMostVotes.length === 1 &&
-    playersWithMostVotes[0].votesReceived >= majorityThreshold;
+  const isNotTied = playersWithMostVotes.length === 1;
 
   return {
-    eliminatedPlayer: singleMajority ? playersWithMostVotes[0] : undefined,
-    tiedPlayers: !singleMajority ? playersWithMostVotes : undefined,
-    eliminatedIsTraitor: singleMajority
+    eliminatedPlayer: isNotTied ? playersWithMostVotes[0] : undefined,
+    tiedPlayers: !isNotTied ? playersWithMostVotes : undefined,
+    eliminatedIsTraitor: isNotTied
       ? gameState.players.find(
           (p) =>
             p.identity.isEqual(playersWithMostVotes[0].identity) &&
